@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 import styles from "./NewPost.module.scss";
 
@@ -6,7 +7,18 @@ class NewPost extends Component {
   state = {
     title: "",
     content: "",
-    author: "Max"
+    author: "Dima"
+  };
+
+  postDataHandler = () => {
+    const data = {
+      title: this.state.title,
+      body: this.state.content,
+      author: this.state.author
+    }
+    axios.post("/posts/", data).then(response => {
+      console.log(response);
+    });
   };
 
   render() {
@@ -33,7 +45,7 @@ class NewPost extends Component {
           <option value="Dima">Dima</option>
           <option value="Evgeny">Evgeny</option>
         </select>
-        <button>Add Post</button>
+        <button onClick={this.postDataHandler}>Add Post</button>
       </div>
     );
   }
