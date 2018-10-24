@@ -1,3 +1,5 @@
+@import "../../Assets/Style/colors.scss";
+
 .Blog {
   ul {
     list-style: none;
@@ -14,8 +16,9 @@
     text-decoration: none;
     color: black;
     &:hover,
-    &:active {
-      color: #fa923f;
+    &:active,
+    &.active {
+      color: $active_link;
     }
   }
 }
